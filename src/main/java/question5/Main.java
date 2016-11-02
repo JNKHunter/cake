@@ -28,8 +28,7 @@ public class Main {
         List<Meeting> mergedMeetings = new ArrayList<>();
         mergedMeetings.add(meetings.get(0));
 
-
-        for(Meeting currentMeeting : meetings){
+        meetings.stream().forEach(currentMeeting -> {
             Meeting lastMergedMeeting = mergedMeetings.get(mergedMeetings.size() - 1);
 
             if(currentMeeting.getStartTime() <= lastMergedMeeting.getEndTime()){
@@ -37,8 +36,7 @@ public class Main {
             } else{
                 mergedMeetings.add(currentMeeting);
             }
-        }
-
+        });
 
         System.out.println("-------------------------------");
         for(Meeting meeting : mergedMeetings){
