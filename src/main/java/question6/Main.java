@@ -5,8 +5,8 @@ package question6;
  */
 public class Main {
     public static void main(String[] args) {
-        Rectangle rect1 = new Rectangle(10,10,5,5);
-        Rectangle rect2 = new Rectangle(12,13,7,5);
+        Rectangle rect1 = new Rectangle(-5,-5,5,5);
+        Rectangle rect2 = new Rectangle(-7,-8,9,5);
 
         System.out.println(getIntersection(rect1, rect2));
     }
@@ -37,12 +37,14 @@ public class Main {
             rectIntersectWidth = maxWidth - (Math.abs(rect1.leftX - rect2.leftX));
             rectIntersectHeight = maxHeight - (Math.abs(rect1.bottomY - rect2.bottomY));
 
+            int xintersect = Integer.min(rect1RightEdge, rect2RightEdge);
+            int yintersect = Integer.min(rect1TopEdge, rect2TopEdge);
 
-
-
+            rectIntersectLeft = xintersect - rectIntersectWidth;
+            rectIntersectBottom = yintersect - rectIntersectHeight;
 
         }
 
-        return new Rectangle(0,0,rectIntersectWidth,rectIntersectHeight);
+        return new Rectangle(rectIntersectLeft,rectIntersectBottom,rectIntersectWidth,rectIntersectHeight);
     }
 }
