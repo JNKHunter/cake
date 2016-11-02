@@ -22,6 +22,7 @@ public class Rectangle {
     }
 
     public Rectangle() {
+
     }
 
     public String toString() {
