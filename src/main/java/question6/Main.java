@@ -22,8 +22,8 @@ public class Main {
         int rect2TopEdge = rect2.bottomY + rect2.height;
         int rect2BottomEdge = rect2.bottomY;
 
-        int rectIntersectLeft = 0;
-        int rectIntersectBottom = 0;
+        int rectIntersectX = 0;
+        int rectIntersectY = 0;
         int rectIntersectWidth = 0;
         int rectIntersectHeight = 0;
 
@@ -37,14 +37,11 @@ public class Main {
             rectIntersectWidth = maxWidth - (Math.abs(rect1.leftX - rect2.leftX));
             rectIntersectHeight = maxHeight - (Math.abs(rect1.bottomY - rect2.bottomY));
 
-            int xintersect = Integer.min(rect1RightEdge, rect2RightEdge);
-            int yintersect = Integer.min(rect1TopEdge, rect2TopEdge);
-
-            rectIntersectLeft = xintersect - rectIntersectWidth;
-            rectIntersectBottom = yintersect - rectIntersectHeight;
+            rectIntersectX = Integer.max(rect1LeftEdge, rect2LeftEdge);
+            rectIntersectY = Integer.max(rect1BottomEdge, rect2BottomEdge);
 
         }
 
-        return new Rectangle(rectIntersectLeft,rectIntersectBottom,rectIntersectWidth,rectIntersectHeight);
+        return new Rectangle(rectIntersectX,rectIntersectY,rectIntersectWidth,rectIntersectHeight);
     }
 }
