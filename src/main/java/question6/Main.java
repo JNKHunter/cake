@@ -22,26 +22,23 @@ public class Main {
         int rect2TopEdge = rect2.bottomY + rect2.height;
         int rect2BottomEdge = rect2.bottomY;
 
-        int rectIntersectX = 0;
-        int rectIntersectY = 0;
-        int rectIntersectWidth = 0;
-        int rectIntersectHeight = 0;
+        int rectOriginX = 0;
+        int rectOriginY = 0;
+        int rectWidth = 0;
+        int rectHeight = 0;
 
         if((rect1RightEdge >= rect2LeftEdge && rect2RightEdge >= rect1LeftEdge) &&
                 (rect1BottomEdge <= rect2TopEdge && rect1TopEdge >= rect2BottomEdge)){
 
-            System.out.println("intersection!!");
-            int maxWidth = Integer.min(rect1.width, rect2.width);
-            int maxHeight = Integer.min(rect2.height, rect2.height);
+            rectOriginX = Integer.max(rect1LeftEdge, rect2LeftEdge);
+            rectOriginY = Integer.max(rect1BottomEdge, rect2BottomEdge);
 
-            rectIntersectWidth = maxWidth - (Math.abs(rect1.leftX - rect2.leftX));
-            rectIntersectHeight = maxHeight - (Math.abs(rect1.bottomY - rect2.bottomY));
+            int rectXIntersect = Integer.min(rect1RightEdge, rect2RightEdge);
+            int rectYIntersect = Integer.min(rect1TopEdge, rect2TopEdge);
 
-            rectIntersectX = Integer.max(rect1LeftEdge, rect2LeftEdge);
-            rectIntersectY = Integer.max(rect1BottomEdge, rect2BottomEdge);
-
+            rectWidth = (Math.abs(rectOriginX - rectXIntersect));
+            rectHeight = (Math.abs(rectOriginY - rectYIntersect));
         }
-
-        return new Rectangle(rectIntersectX,rectIntersectY,rectIntersectWidth,rectIntersectHeight);
+        return new Rectangle(rectOriginX,rectOriginY,rectWidth,rectHeight);
     }
 }
