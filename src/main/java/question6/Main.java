@@ -5,13 +5,13 @@ package question6;
  */
 public class Main {
     public static void main(String[] args) {
-        Rectangle rect1 = new Rectangle(-5,-5,5,5);
-        Rectangle rect2 = new Rectangle(-7,-8,9,5);
+        Rectangle rect1 = new Rectangle(-5, -5, 5, 5);
+        Rectangle rect2 = new Rectangle(-7, -8, 9, 5);
 
         System.out.println(getIntersection(rect1, rect2));
     }
 
-    private static Rectangle getIntersection(Rectangle rect1, Rectangle rect2){
+    private static Rectangle getIntersection(Rectangle rect1, Rectangle rect2) {
         int rect1LeftEdge = rect1.leftX;
         int rect1RightEdge = rect1.leftX + rect1.width;
         int rect1TopEdge = rect1.bottomY + rect1.height;
@@ -27,8 +27,8 @@ public class Main {
         int rectWidth = 0;
         int rectHeight = 0;
 
-        if((rect1RightEdge >= rect2LeftEdge && rect2RightEdge >= rect1LeftEdge) &&
-                (rect1BottomEdge <= rect2TopEdge && rect1TopEdge >= rect2BottomEdge)){
+        if ((rect1RightEdge >= rect2LeftEdge && rect2RightEdge >= rect1LeftEdge) &&
+                (rect1BottomEdge <= rect2TopEdge && rect1TopEdge >= rect2BottomEdge)) {
 
             rectOriginX = Integer.max(rect1LeftEdge, rect2LeftEdge);
             rectOriginY = Integer.max(rect1BottomEdge, rect2BottomEdge);
@@ -39,6 +39,6 @@ public class Main {
             rectWidth = (Math.abs(rectOriginX - rectXIntersect));
             rectHeight = (Math.abs(rectOriginY - rectYIntersect));
         }
-        return new Rectangle(rectOriginX,rectOriginY,rectWidth,rectHeight);
+        return new Rectangle(rectOriginX, rectOriginY, rectWidth, rectHeight);
     }
 }
