@@ -36,7 +36,7 @@ public class TempTracker {
         }
 
 
-        //If the current temperature's frequency is higher than the current mode, promote to new mode.
+        //Set the mode value and key. If the current temperature's frequency is higher than the current mode, promote to new mode.
         if(temps.get(temp) > curModeVal){
             curModeVal = temps.get(temp);
             curModeKey = temp;
