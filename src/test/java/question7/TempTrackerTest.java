@@ -27,4 +27,16 @@ public class TempTrackerTest {
         assertEquals(myTracker.getMin(), -1);
     }
 
+    @Test
+    public void testMaxCaching() throws Exception {
+        myTracker.insert(0);
+        myTracker.insert(100);
+        myTracker.insert(-200);
+        myTracker.insert(300);
+        myTracker.insert(300);
+        myTracker.insert(301);
+
+        assertEquals(myTracker.getMax(), 301);
+    }
+
 }
