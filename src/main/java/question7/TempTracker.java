@@ -41,6 +41,10 @@ public class TempTracker {
             curModeVal = temps.get(temp);
             curModeKey = temp;
         }
+
+        total += temp;
+        mean = total/temps.size();
+
     }
 
     public int getMin() {
