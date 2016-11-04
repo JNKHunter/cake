@@ -15,9 +15,14 @@ public class TempTracker {
     double mean = 0;
     int curModeKey = 0;
     int curModeVal = 0;
+    int numTemps = 0;
     Map<Integer, Integer> temps = new HashMap<>();
 
     public void insert(int temp){
+        //Keep a running count and total of temperatures. This is for caching purposes
+        numTemps += 1;
+        total += temp;
+
         if(min > temp){
             min = temp;
         }
@@ -35,15 +40,14 @@ public class TempTracker {
             temps.put(temp, 1);
         }
 
-
         //Set the mode value and key. If the current temperature's frequency is higher than the current mode, promote to new mode.
         if(temps.get(temp) > curModeVal){
             curModeVal = temps.get(temp);
             curModeKey = temp;
         }
 
-        total += temp;
-        mean = total/temps.size();
+
+        mean = total/numTemps;
 
     }
 

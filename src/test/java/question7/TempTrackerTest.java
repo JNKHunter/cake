@@ -24,7 +24,7 @@ public class TempTrackerTest {
         myTracker.insert(3);
         myTracker.insert(-1);
 
-        assertEquals(myTracker.getMin(), -1);
+        assertEquals(-1, myTracker.getMin());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class TempTrackerTest {
         myTracker.insert(300);
         myTracker.insert(301);
 
-        assertEquals(myTracker.getMax(), 301);
+        assertEquals(301, myTracker.getMax());
     }
 
     @Test
@@ -56,10 +56,20 @@ public class TempTrackerTest {
         myTracker.insert(100);
         myTracker.insert(100);
 
-        assertEquals(myTracker.getMode(), 100);
+        assertEquals(100, myTracker.getMode());
     }
 
+    @Test
+    public void testMeanCaching() throws Exception {
 
+        myTracker.insert(100);
+        myTracker.insert(50);
+        myTracker.insert(-100);
+        myTracker.insert(25);
+        myTracker.insert(100);
+
+        assertEquals(35, myTracker.getMean(),0.001);
+    }
 
 
 
