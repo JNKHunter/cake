@@ -15,6 +15,7 @@ public class UrlMapTest {
 
     private UrlMap urls;
     private String testwww = "www.google.com";
+    private String testNonwww = "instagram.com";
 
     @Before
     public void setUp() throws Exception {
@@ -22,14 +23,25 @@ public class UrlMapTest {
     }
 
     @Test
-    public void addWWWPrefixUrlReturnTrue() throws Exception {
+    public void addWWWUrlReturnTrue() throws Exception {
         assertTrue(urls.addUrl(testwww));
     }
 
     @Test
-    public void addDuplicateUrlReturnFalse() throws Exception {
+    public void addNonWWWUrlReturnTrue() throws Exception {
+        assertTrue(urls.addUrl(testNonwww));
+    }
+
+    @Test
+    public void addWWWDuplicateUrlReturnFalse() throws Exception {
         urls.addUrl(testwww);
         assertFalse(urls.addUrl(testwww));
+    }
+
+    @Test
+    public void addNonDuplicateUrlReturnFalse() throws Exception {
+        urls.addUrl(testNonwww);
+        assertFalse(urls.addUrl(testNonwww));
     }
 
 }
