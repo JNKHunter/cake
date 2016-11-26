@@ -15,10 +15,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        UrlMap urls = new UrlMap();
+        //UrlMap urls = new UrlMap();
 
-        System.out.println(urls.addUrl("www.google.com"));
-        System.out.println(urls.addUrl("www.google.com"));
+        //System.out.println(urls.addUrl("www.google.com"));
+        //System.out.println(urls.addUrl("www.google.com"));
+
+        Trie trie = new Trie();
+
+        trie.checkPresentAndAdd("www.google.com");
+        trie.checkPresentAndAdd("reddit.com");
 
     }
 }
