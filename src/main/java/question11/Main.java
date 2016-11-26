@@ -23,7 +23,7 @@ public class Main {
         Trie trie = new Trie();
 
         trie.checkPresentAndAdd("www.google.com");
-        trie.checkPresentAndAdd("reddit.com");
+        trie.checkPresentAndAdd("www.geddit.com");
 
     }
 }
