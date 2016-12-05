@@ -6,6 +6,24 @@ package question13;
 public class Main {
 
     public static void main(String[] args) {
+        String[] words = new String[]{
+            "ptolemaic",
+            "retrograde",
+            "supplant",
+            "undulate",
+            "xenoepist",
+            "asymptote", // <-- rotates here!
+            "babka",
+            "banoffee",
+            "engender",
+            "karpatka",
+            "othellolagkage"
+        };
+    }
+
+    public static int getRotationPoint(String[] words){
+
+
 
     }
 
