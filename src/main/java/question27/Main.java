@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        String message = "find you will pain only go you recordings security the into if";
+        String message = "find you will pain only go you recordings security the into if i";
         System.out.println(reverseWords(message));
     }
 
