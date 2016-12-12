@@ -10,6 +10,8 @@ import java.util.Stack;
  */
 public class Main {
     public static void main(String[] args) {
+        System.out.println(validate("([]{})")); //Good syntax. Prints true.
+        System.out.println(validate("([{]})")); //Bad Syntax. Prints false.
 
     }
 
@@ -66,7 +68,7 @@ public class Main {
                 return '{';
 
             case ']':
-                return '{';
+                return '[';
             case ')':
                 return '(';
 
