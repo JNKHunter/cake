@@ -29,11 +29,15 @@ public class Main {
 
             if(isCloser(currentChar)){
                 char opener = getOpener(currentChar);
-                
+                if(blocks.peek() == opener){
+                    blocks.pop();
+                }else{
+                    return false;
+                }
             }
         }
 
-        return false;
+        return true;
     }
 
     public static boolean isOpener(char c){
