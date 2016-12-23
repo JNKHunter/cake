@@ -6,7 +6,7 @@ package question39;
 public class Main {
 
     public static void main(String[] args) {
-        findFloor(100, 13);
+        findFloor(100, 99);
     }
 
     public static int findFloor(int numFloors, int targetFloor){
@@ -20,6 +20,7 @@ public class Main {
                 return i - (i - targetFloor);
             }
         }
+        System.out.println("number of tries is: " + numberOfTries);
         return 99;
     }
 
