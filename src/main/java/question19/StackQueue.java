@@ -26,14 +26,12 @@ public class StackQueue{
             while(!leftStack.empty()){
                 rightStack.push(leftStack.pop());
             }
-
             return rightStack.pop();
-
         }
     }
 
     public Integer peek(){
-        if(rightStack.size() > 0) {
+        if(rightStack.size() == 0) {
             shuffleToRightStack();
         }
         return rightStack.peek();

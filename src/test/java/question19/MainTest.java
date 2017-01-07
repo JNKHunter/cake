@@ -20,6 +20,20 @@ public class MainTest {
     @Test
     public void testEnqueue(){
         queue.enqueue(10);
+        assertEquals((Integer)10,queue.peek());
+
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        assertEquals((Integer)10, queue.peek());
+    }
+
+    @Test
+    public void testDequeue(){
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        assertEquals((Integer)10, queue.dequeue());
     }
 
 }
