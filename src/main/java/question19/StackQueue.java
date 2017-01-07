@@ -22,7 +22,6 @@ public class StackQueue{
         if(rightStack.size() > 0){
             return rightStack.pop();
         }else{
-
             while(!leftStack.empty()){
                 rightStack.push(leftStack.pop());
             }

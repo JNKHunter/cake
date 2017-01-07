@@ -34,6 +34,17 @@ public class MainTest {
         queue.enqueue(20);
         queue.enqueue(30);
         assertEquals((Integer)10, queue.dequeue());
+        assertEquals((Integer)20, queue.dequeue());
+        assertEquals((Integer)30, queue.dequeue());
+
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
+        queue.dequeue();
+        queue.enqueue(50);
+        queue.enqueue(60);
+        assertEquals((Integer)20, queue.dequeue());
     }
 
 }
