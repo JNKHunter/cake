@@ -1,8 +1,7 @@
-package question32;
+package util;
 
 /**
  * Created by jhunter on 1/7/17.
  */
-public class Main {
-
+public class ArrayUtils {
 }
