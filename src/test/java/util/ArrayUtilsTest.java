@@ -21,7 +21,6 @@ public class ArrayUtilsTest {
         Arrays.sort(theArray);
     }
 
-
     @Test
     public void testMinValue() throws Exception {
         assertEquals(0, theArray[0]);
