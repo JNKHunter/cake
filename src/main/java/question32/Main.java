@@ -31,10 +31,5 @@ public class Main {
         for(int i : sortedArray){
             System.out.println(i);
         }
-
     }
-
-
-
-
 }
