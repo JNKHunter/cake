@@ -6,16 +6,25 @@ package question33;
 public class FindDuplicateInt {
 
     private int[] values;
+    int highest;
 
-    public FindDuplicateInt(int[] values){
+    public FindDuplicateInt(int[] values, int highest){
         this.values = values;
+        this.highest = highest;
     }
 
-    public int sumAllValues(int length){
-        return ((length * length) + length)/2;
+    public int sumAllValues(int value){
+        return ((value * value) + value)/2;
     }
 
     public int findDuplicate(){
-        return sumAllValues(values.length) - sumAllValues(values.length - 1);
+        int sum = sumAllValues(highest);
+        int arraySum = 0;
+
+        for(int i : values){
+            arraySum += i;
+        }
+
+        return arraySum - sum;
     }
 }
