@@ -20,6 +20,10 @@ public class Node {
         this.next = nextNode;
     }
 
+    public void setNextToNull(){
+        this.next = null;
+    }
+
     public Node getNext(){
         return this.next;
     }

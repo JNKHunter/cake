@@ -93,4 +93,24 @@ public class LinkedList {
         return false;
     }
 
+    public void reverse(){
+        reverse(this.head);
+    }
+
+    private void reverse(Node node){
+        Node oldHead = head;
+        if(node.getNext() != null){
+            reverse(node.getNext());
+            node.getNext().setNext(node);
+
+            if(node == oldHead){
+                oldHead.setNextToNull();
+            }
+
+        }else{
+            head = node;
+        }
+    }
+
+
 }

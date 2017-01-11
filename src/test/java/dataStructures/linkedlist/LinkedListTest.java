@@ -44,4 +44,18 @@ public class LinkedListTest {
         assertEquals(15, list.get(0));
     }
 
+    @Test
+    public void testReverse() throws Exception{
+
+        assertEquals(15, list.get(0));
+        list.reverse();
+        assertEquals(17, list.get(0));
+        assertEquals(16, list.get(1));
+        list.add(14);
+        list.add(13);
+        list.add(12);
+        list.reverse();
+        assertEquals(12, list.get(0));
+    }
+
 }
