@@ -60,7 +60,7 @@ public class LinkedList {
                     return null;
                 }
 
-                current.getNext();
+                current = current.getNext();
             }
 
             return current.getData();
@@ -77,10 +77,11 @@ public class LinkedList {
 
         if(head != null){
             Node current = head;
-            for(int i = 0; i < index; i++){
+            for(int i = 1; i < index; i++){
                 if(current.getNext() == null){
                     return false;
                 }
+
                 current = current.getNext();
             }
 
