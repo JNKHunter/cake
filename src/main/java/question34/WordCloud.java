@@ -19,14 +19,14 @@ public class WordCloud {
 
     private void generateMap(){
         String tmpString = "";
-        char[] punctuation = {':', ';', ',', '.', '?', '!', ' '};
+        char[] standardPunc = {':', ';', ',', '.', '?', '!', ' '};
         char curChar;
 
         for(int i = 0; i < textString.length(); i++){
 
             curChar = textString.charAt(i);
 
-            if(!Character.isLetter(curChar)){
+            if(!Character.isLetter(curChar) && curChar != '\'' && curChar != '-' && curChar != ','){
                 if(tmpString != ""){
                     if(wordMap.get(tmpString.toLowerCase()) != null){
                         wordMap.put(tmpString.toLowerCase(), wordMap.get(tmpString.toLowerCase()) + 1);
