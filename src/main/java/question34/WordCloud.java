@@ -14,26 +14,30 @@ public class WordCloud {
     public WordCloud(String textString) {
         this.textString = textString;
         wordMap = new HashMap<>();
+        generateMap();
     }
 
     private void generateMap(){
         String tmpString = "";
-        char[] punctuation = {':', ';', ',', '.', '?', '!'};
+        char[] punctuation = {':', ';', ',', '.', '?', '!', ' '};
         char curChar;
 
         for(int i = 0; i < textString.length(); i++){
 
             curChar = textString.charAt(i);
 
-            for(int j = 0; j < punctuation.length; j++){
-                if(curChar == punctuation[j]){
-                    if(tmpString != ""){
-                        wordMap.put(tmpString, wordMap.get(tmpString) + 1);
-                        tmpString = "";
+            if(!Character.isLetter(curChar)){
+                if(tmpString != ""){
+                    if(wordMap.get(tmpString.toLowerCase()) != null){
+                        wordMap.put(tmpString.toLowerCase(), wordMap.get(tmpString.toLowerCase()) + 1);
+                    }else{
+                        wordMap.put(tmpString.toLowerCase(), 1);
                     }
-                }else{
-                    tmpString = tmpString + curChar;
+
+                    tmpString = "";
                 }
+            }else{
+                tmpString = tmpString + curChar;
             }
 
 
