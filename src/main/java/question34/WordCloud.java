@@ -28,7 +28,7 @@ public class WordCloud {
 
             if(!Character.isLetter(curChar) && curChar != '\'' && curChar != '-' && curChar != ','){
                 if(tmpString != ""){
-                    if(wordMap.get(tmpString.toLowerCase()) != null){
+                    if(wordMap.containsKey(tmpString.toLowerCase())){
                         wordMap.put(tmpString.toLowerCase(), wordMap.get(tmpString.toLowerCase()) + 1);
                     }else{
                         wordMap.put(tmpString.toLowerCase(), 1);
@@ -39,12 +39,6 @@ public class WordCloud {
             }else{
                 tmpString = tmpString + curChar;
             }
-
-
-            //Check for space, comma, colon, semicolon. If any of these. Then we've reached the end of a word and we
-            // should put it in the hash map
-
-            //Strip any Check for punctuation. Single quote should be ok since it's part of a word
         }
     }
 
