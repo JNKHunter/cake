@@ -36,10 +36,6 @@ public class CakeTypeTest {
 
             for (CakeType cakeType : cakeTypes) {
 
-                // if a cake weighs 0 and has a positive value the value of our duffel bag is infinite!
-                if (cakeType.weight == 0 && cakeType.value != 0) {
-                    throw new InfinityException();
-                }
 
                 // if the current cake weighs as much or less than the current weight capacity
                 // it's possible taking the cake would give get a better value
