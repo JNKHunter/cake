@@ -54,6 +54,7 @@ public class WeightedQuickUnion {
             parent[rootQ] = rootP;
             size[rootP] += size[rootQ];
         }
+        count --;
     }
 
 
