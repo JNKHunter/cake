@@ -21,7 +21,6 @@ public class Main {
         today.add(new Meeting(12,11));
 
         mergeMeetings(today);
-
     }
 
     public static List<Meeting> mergeMeetings(List<Meeting> meetings) {
@@ -49,12 +48,6 @@ public class Main {
             }
         });
 
-        for(int k = 0; k < meetings.size(); k ++) {
-            System.out.println(meetings.get(k).toString());
-        }
-
-        System.out.println("--------------------");
-
         List<Meeting> mergedMeetings = new ArrayList<>();
 
         for(int i = 0; i < meetings.size(); i++) {
@@ -65,19 +58,15 @@ public class Main {
             mergedMeetings.add(mergedMeeting);
 
             for(int j = i+1; j < meetings.size(); j++) {
-                if(mergedMeeting.getEndTime() >= meetings.get(j).getStartTime()) {
+                if (mergedMeeting.getEndTime() >= meetings.get(j).getStartTime()) {
                     mergedMeeting.setEndTime(meetings.get(j).getEndTime());
                 } else {
-                    i = j-1;
+                    i = j;
+                    mergedMeetings.add(new Meeting(meetings.get(j).getStartTime(),
+                            meetings.get(j).getEndTime()));
                     break;
                 }
             }
-
-
-        }
-
-        for(int k = 0; k < mergedMeetings.size(); k ++) {
-            System.out.println(mergedMeetings.get(k).toString());
         }
         return mergedMeetings;
     }
