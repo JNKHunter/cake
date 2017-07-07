@@ -19,6 +19,12 @@ public class GraphTest {
     Node node5;
     Node node6;
     Node node7;
+    Node node8;
+    Node node9;
+    Node node10;
+    Node node11;
+    Node node12;
+    Node node13;
 
     @Before
     public void setUp() {
@@ -30,6 +36,12 @@ public class GraphTest {
         node5 = new Node(5, 5);
         node6 = new Node(6, 6);
         node7 = new Node(7, 7);
+        node8 = new Node(8, 8);
+        node9 = new Node(9, 9);
+        node10 = new Node(10, 10);
+        node11 = new Node(11, 11);
+        node12 = new Node(12, 12);
+        node13 = new Node(13, 13);
 
         graph.add(node1);
         graph.add(node2);
@@ -38,14 +50,28 @@ public class GraphTest {
         graph.add(node5);
         graph.add(node6);
         graph.add(node7);
+        graph.add(node8);
+        graph.add(node9);
+        graph.add(node10);
+        graph.add(node11);
+        graph.add(node12);
+        graph.add(node13);
 
         graph.connect(node1, node2);
         graph.connect(node2, node3);
         graph.connect(node3, node4);
         graph.connect(node4, node5);
+        graph.connect(node5, node3);
+        graph.connect(node5, node8);
         graph.connect(node6, node5);
         graph.connect(node7, node6);
         graph.connect(node7, node4);
+        graph.connect(node8, node9);
+        graph.connect(node8, node10);
+        graph.connect(node9, node13);
+        graph.connect(node10, node11);
+        graph.connect(node12, node9);
+        graph.connect(node13, node5);
     }
 
     @Test
@@ -73,13 +99,22 @@ public class GraphTest {
         assertTrue(graph.hasPath(node1, node4));
         graph.resetSearch();
 
+        assertTrue(graph.hasPath(node7, node5));
+        graph.resetSearch();
+        
+        assertTrue(graph.hasPath(node12, node3));
+        graph.resetSearch();
+
+        assertTrue(graph.hasPath(node1, node11));
+        graph.resetSearch();
+
+        assertFalse(graph.hasPath(node11, node1));
+        graph.resetSearch();
+
         assertFalse(graph.hasPath(node1, node7));
         graph.resetSearch();
 
         assertFalse(graph.hasPath(node1, node6));
-        graph.resetSearch();
-
-        assertTrue(graph.hasPath(node7, node5));
         graph.resetSearch();
     }
 
