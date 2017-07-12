@@ -1,5 +1,6 @@
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 
 /**
  * Created by John on 7/10/17.
@@ -73,20 +74,76 @@ public class SimpleLinkedList {
         }
     }
 
+    public boolean isPalindrome(Node n, int count) {
+        Stack<Integer> stack = new Stack<>();
+
+        int mid = count/2;
+        int i = 0;
+        while(i < mid){
+            stack.push(n.val);
+            n = n.next;
+            ++i;
+        }
+
+        if(count % 2 != 0){
+            n = n.next;
+        }
+
+        while(n != null) {
+            Integer popped = stack.pop();
+            if(popped != n.val) return false;
+            n = n.next;
+        }
+
+        return true;
+    }
+
+    public Node partition(Node n, int value) {
+        Node ltv = null;
+        Node gtv = null;
+        Node ltvh = null;
+        Node gtvh = null;
+
+        while(n != null) {
+            if(n.val < value) {
+                if(ltv != null) {
+                    ltv.next = new Node(n.val);
+                    ltv = ltv.next;
+                } else {
+                    ltv = new Node(n.val);
+                    ltvh = ltv;
+                }
+            }else{
+                if(gtv != null) {
+                    gtv.next = new Node(n.val);
+                    gtv = gtv.next;
+                } else {
+                    gtv = new Node(n.val);
+                    gtvh = gtv;
+                }
+            }
+
+            Node prev = n;
+            n = n.next;
+            prev = null;
+        }
+        ltv.next = gtvh;
+        return ltvh;
+    }
+
     public static void main(String[] args) {
         SimpleLinkedList list = new SimpleLinkedList();
 
-        list.addNode(1);
         list.addNode(2);
-        list.addNode(3);
-        list.addNode(3);
-        list.addNode(4);
         list.addNode(1);
-        list.addNode(5);
-        list.addNode(6);
-        list.addNode(6);
+        list.addNode(3);
+        list.addNode(3);
+        list.addNode(3);
+        list.addNode(3);
+        list.addNode(1);
+        list.addNode(1);
 
-        Node kth = list.kthElement(head, 0, 3);
+        boolean b = list.isPalindrome(head, 8);
         int i = 0;
 
     }
