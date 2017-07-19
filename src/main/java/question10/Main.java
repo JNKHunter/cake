@@ -18,11 +18,11 @@ public class Main {
         BinaryTreeNode node15 = new BinaryTreeNode(15);
 
         node7.left = node5;
-        node7.right = node12;
+       
         node5.left = node2;
         node6.right = node6;
         node12.left = node9;
-        node12.right = node15;
+        
         node2.left = node1;
         node2.right = node4;
 
@@ -36,26 +36,37 @@ public class Main {
         BinaryTreeNode largest = n;
         BinaryTreeNode nextLargest = n;
 
+        int counter = 0;
+
         BinaryTreeNode current = n;
         while(current != null) {
             stack.push(current);
-            current = current.left;
+            current = current.right;
         }
 
         while(stack.size() > 0) {
             current = stack.pop();
-            if(current.value > largest.value) {
-                nextLargest = largest;
-                largest = current;
+            if(current.value > nextLargest.value) {
+                if(current.value > largest.value) {
+                    nextLargest = largest;
+                    largest = current;
+                } else {
+                    nextLargest = current;
+                }
+                
+                counter += 1;
+                if(counter == 2) {
+                    return nextLargest;
+                }
             }
 
 
-            if(current.right != null){
-                current = current.right;
+            if(current.left != null){
+                current = current.left;
 
                 while(current != null){
                     stack.push(current);
-                    current = current.left;
+                    current = current.right;
                 }
             }
         }
